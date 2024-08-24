@@ -46,19 +46,14 @@ points:
       rows:
         mod:
           row_net: P022
-          mirror.row_net: P113
         bottom:
           row_net: P020
-          mirror.row_net: P115
         home:
           row_net: P017
-          mirror.row_net: P002
         top:
           row_net: P008
-          mirror.row_net: P029
         num:
           row_net: P006
-          mirror.row_net: P031
     matrix_thumbfan:
       anchor:
         ref: matrix_index_mod
@@ -72,7 +67,6 @@ points:
       rows:
         thumb:
           row_net: P022
-          mirror.row_net: P113
   mirror: &mirror
     ref: matrix_inner_num
     distance: 100
