@@ -1,0 +1,16 @@
+if SHIELD_R-BAR-BOARD_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "r-bar-board"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_R-BAR-BOARD_LEFT || SHIELD_R-BAR-BOARD_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif

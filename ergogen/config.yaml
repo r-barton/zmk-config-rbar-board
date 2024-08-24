@@ -1,0 +1,626 @@
+units:
+  # Proxy Spacing Variables
+  kx: cx
+  ky: cy
+  # Choc key dimensions for plate
+  choc_x: 13.9
+  choc_y: 13.9
+  # Padding Variables
+  px: kx + 4
+  py: ky + 4
+  # Double Padding Variables
+  dpx: kx + 8
+  dpy: ky + 8
+  # M2 Screws Inserts
+  screwSize: 1
+  standoffSize: 2.5
+
+points:
+  zones:
+    matrix:
+      anchor:
+        shift: [50, -200]
+      columns:
+        outer:
+          key.column_net: P024
+        pinky:
+          key.stagger: 5
+          key.column_net: P100
+          key.splay: -1
+        ring:
+          key.stagger: 4
+          key.splay: -1
+          key.column_net: P011
+        middle:
+          key.stagger: -3
+          key.splay: -1
+          key.column_net: P104
+        index:
+          key.stagger: -5
+          key.splay: -1
+          key.column_net: P106
+          rows.mod.skip: true
+        inner:
+          key.column_net: P009
+          rows.mod.skip: true
+      rows:
+        mod:
+          row_net: P022
+          mirror.row_net: P113
+        bottom:
+          row_net: P020
+          mirror.row_net: P115
+        home:
+          row_net: P017
+          mirror.row_net: P002
+        top:
+          row_net: P008
+          mirror.row_net: P029
+        num:
+          row_net: P006
+          mirror.row_net: P031
+    matrix_thumbfan:
+      anchor:
+        ref: matrix_index_mod
+        shift: [8, -3]
+      columns:
+        space:
+          key.column_net: P106
+          key.splay: -15
+        mod:
+          key.column_net: P009
+      rows:
+        thumb:
+          row_net: P022
+          mirror.row_net: P113
+  mirror: &mirror
+    ref: matrix_inner_num
+    distance: 100
+
+outlines:
+  # Pure key outline.
+  raw:
+    - what: rectangle
+      where: true
+      size: [px, py]
+
+  # Choc keys
+  choc_keys:
+    - what: rectangle
+      where: true
+      size: [choc_x, choc_y]
+  
+  # Key outlines with 0.5mm removed to show key overlaps.
+  keys:
+    - what: rectangle
+      where: true
+      size: [kx-0.5,ky-0.5]
+  
+  left:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: matrix_outer_num
+          shift: [-0.5px, 0.5py]
+        - ref: matrix_ring_num
+          shift: [-0.5px, 0.6py]
+        - ref: matrix_ring_num
+          shift: [0.5px, 0.6py]
+        - ref: matrix_inner_num
+          shift: [0.5px, 0.5py]
+        - ref: matrix_inner_num
+          shift: [1.5px, 0.5py]
+        - ref: matrix_inner_top
+          shift: [1.5px, -0.5py]
+        - ref: matrix_thumbfan_mod_thumb
+          shift: [0.5px, 0.5py]
+        - ref: matrix_thumbfan_mod_thumb
+          shift: [0.5px, -0.5py]
+        - ref: matrix_thumbfan_space_thumb
+          shift: [-0.5px, -0.5py]
+        - ref: matrix_outer_mod
+          shift: [0.5px, -0.5py]
+        - ref: matrix_outer_mod
+          shift: [-0.5px, -0.5py]
+      fillet: 3
+  
+  
+  right:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: mirror_matrix_outer_num
+          shift: [-0.5px, 0.5py]
+        - ref: mirror_matrix_ring_num
+          shift: [-0.5px, 0.6py]
+        - ref: mirror_matrix_ring_num
+          shift: [0.5px, 0.6py]
+        - ref: mirror_matrix_inner_num
+          shift: [0.5px, 0.5py]
+        - ref: mirror_matrix_inner_num
+          shift: [1.5px, 0.5py]
+        - ref: mirror_matrix_inner_top
+          shift: [1.5px, -0.5py]
+        - ref: mirror_matrix_thumbfan_mod_thumb
+          shift: [0.5px, 0.5py]
+        - ref: mirror_matrix_thumbfan_mod_thumb
+          shift: [0.5px, -0.5py]
+        - ref: mirror_matrix_thumbfan_space_thumb
+          shift: [-0.5px, -0.5py]
+        - ref: mirror_matrix_outer_mod
+          shift: [0.5px, -0.5py]
+        - ref: mirror_matrix_outer_mod
+          shift: [-0.5px, -0.5py]
+      fillet: 3
+  
+  xlBoardLeft:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: matrix_outer_num
+          shift: [-0.5dpx, 0.5dpy]
+        - ref: matrix_ring_num
+          shift: [-0.5dpx, 0.6dpy]
+        - ref: matrix_ring_num
+          shift: [0.5dpx, 0.6dpy]
+        - ref: matrix_inner_num
+          shift: [0.5dpx, 0.5dpy]
+        - ref: matrix_inner_num
+          shift: [1.5dpx, 0.5dpy]
+        - ref: matrix_inner_top
+          shift: [1.5dpx, -0.5dpy]
+        - ref: matrix_thumbfan_mod_thumb
+          shift: [0.5dpx, 0.5dpy]
+        - ref: matrix_thumbfan_mod_thumb
+          shift: [0.5dpx, -0.5dpy]
+        - ref: matrix_thumbfan_space_thumb
+          shift: [-0.5dpx, -0.5dpy]
+        - ref: matrix_outer_mod
+          shift: [0.5dpx, -0.5dpy]
+        - ref: matrix_outer_mod
+          shift: [-0.5dpx, -0.5dpy]
+      fillet: 3
+  xlBoardRight:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: mirror_matrix_outer_num
+          shift: [-0.5dpx, 0.5dpy]
+        - ref: mirror_matrix_ring_num
+          shift: [-0.5dpx, 0.6dpy]
+        - ref: mirror_matrix_ring_num
+          shift: [0.5dpx, 0.6dpy]
+        - ref: mirror_matrix_inner_num
+          shift: [0.5dpx, 0.5dpy]
+        - ref: mirror_matrix_inner_num
+          shift: [1.5dpx, 0.5dpy]
+        - ref: mirror_matrix_inner_top
+          shift: [1.5dpx, -0.5dpy]
+        - ref: mirror_matrix_thumbfan_mod_thumb
+          shift: [0.5dpx, 0.5dpy]
+        - ref: mirror_matrix_thumbfan_mod_thumb
+          shift: [0.5dpx, -0.5dpy]
+        - ref: mirror_matrix_thumbfan_space_thumb
+          shift: [-0.5dpx, -0.5dpy]
+        - ref: mirror_matrix_outer_mod
+          shift: [0.5dpx, -0.5dpy]
+        - ref: mirror_matrix_outer_mod
+          shift: [-0.5dpx, -0.5dpy]
+      fillet: 3
+  
+  mountingLeft:
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_outer_num]
+        shift: [0.5kx, -0.5ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_outer_mod]
+        shift: [0.5kx, 0.6ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_middle_home]
+        shift: [-0.5kx, -0.5ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_inner_num]
+        shift: [-0.5kx, -0.5ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_thumbfan_mod_thumb]
+        shift: [0, 0.8ky]
+  standoffLeft:
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [matrix_outer_num]
+        shift: [0.5kx, -0.5ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [matrix_outer_mod]
+        shift: [0.5kx, 0.6ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [matrix_middle_home]
+        shift: [-0.5kx, -0.5ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [matrix_inner_num]
+        shift: [-0.5kx, -0.5ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [matrix_thumbfan_mod_thumb]
+        shift: [0, 0.8ky]
+
+  mountingRight:
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_outer_num]
+        shift: [0.5kx, -0.5ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_outer_bottom]
+        shift: [0.5kx, -0.5ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_middle_home]
+        shift: [0.5kx, -0.5ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_inner_num]
+        shift: [-0.5kx, -0.5ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_thumbfan_mod_thumb]
+        shift: [0, 0.8ky]
+  standoffRight:
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_matrix_outer_num]
+        shift: [0.5kx, -0.5ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_matrix_outer_bottom]
+        shift: [0.5kx, -0.5ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_matrix_middle_home]
+        shift: [0.5kx, -0.5ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_matrix_inner_num]
+        shift: [-0.5kx, -0.5ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_matrix_thumbfan_mod_thumb]
+        shift: [0, 0.8ky]
+
+  _plateLeftCutout:
+    - name: left
+    - operation: subtract
+      name: choc_keys
+    - operation: subtract
+      name: mountingLeft
+
+  _plateRightCutout:
+    - name: right
+    - operation: subtract
+      name: choc_keys
+    - operation: subtract
+      name: mountingRight
+  
+  # Combination preview showing outline and keys.
+  combo:
+    - name: left
+    - operation: add
+      name: right
+    - operation: subtract
+      name: keys
+
+pcbs:
+  left:
+    outlines:
+      main:
+        outline: left
+    footprints:
+      keyswitches: 
+        where: /^matrix_.*/
+        what: choc
+        params:
+          keycaps: true
+          hotswap: true
+          reverse: false
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          rotate: 180
+      nice_nano:
+        what: nice_nano
+        params:
+          orientation: up
+        where:
+          ref: matrix_inner_num
+          shift: [1px, -0.4px]
+          rotate: -90
+      # Battery jack
+      jstph:
+        what: jstph
+        where:
+          ref: matrix_thumbfan_mod_thumb
+          shift: [0kx, 3ky]
+          rotate: -90
+        params:
+            side: B
+            pos: pos
+            neg: GND
+      # Reset switch (horizontal community version)
+      horizontal_reset:
+        what: EVQPUC
+        params: 
+          side: B
+          from: GND
+          to: RST 
+        where:
+          ref: matrix_thumbfan_mod_thumb
+          shift: [0.45kx, 2.75ky]
+          rotate: -90
+      # Battery on/off switch
+      battery_switch:
+        what: slider
+        where:
+            ref: matrix_thumbfan_mod_thumb
+            shift: [0.4kx, 3.3ky]
+            rotate: -90
+        params:
+            side: B
+            from: pos
+            to: RAW
+      diode:
+        what: diode
+        where: /^matrix_.*/
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, 5]
+      holeTopLeft:
+        what: mountinghole
+        where:
+          ref: [matrix_outer_num]
+          shift: [0.5kx, -0.5ky]
+      holeBottomLeft:
+        what: mountinghole
+        where:
+          ref: [matrix_outer_mod]
+          shift: [0.5kx, 0.6ky]
+      holeCenter:
+        what: mountinghole
+        where:
+          ref: [matrix_middle_home]
+          shift: [-0.5kx, -0.5ky]
+      holeTopRight:
+        what: mountinghole
+        where:
+          ref: [matrix_inner_num]
+          shift: [-0.5kx, -0.5ky]
+      holeBottomRight:
+        what: mountinghole
+        where:
+          ref: [matrix_thumbfan_mod_thumb]
+          shift: [0, 0.8ky]
+      front_text: &text
+        what: text
+        where: &textWhere
+            ref: matrix_thumbfan_mod_thumb
+            shift: [0.3kx, 0.75ky]
+            rotate: 90
+        params: &textParams
+            text: r-bar-board
+            justify: left
+            h_size: 3.0
+            v_size: 3.0
+            thickness: 0.4
+  right:
+    outlines:
+      main:
+        outline: right
+    footprints:
+      keyswitches: 
+        where: /^mirror_.*/
+        what: choc
+        params:
+          keycaps: true
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          rotate: 180
+      nice_nano:
+        what: nice_nano
+        params:
+          orientation: up
+        where:
+          ref: mirror_matrix_inner_num
+          shift: [1px, -0.4px]
+          rotate: 90
+      # Battery jack
+      jstph:
+        what: jstph
+        where:
+          ref: mirror_matrix_thumbfan_mod_thumb
+          shift: [0kx, 3ky]
+          rotate: -90
+        params:
+            side: B
+            pos: pos
+            neg: GND
+      # Reset switch (horizontal community version)
+      horizontal_reset:
+        what: EVQPUC
+        params: 
+          side: B
+          from: GND
+          to: RST 
+        where:
+          ref: mirror_matrix_thumbfan_mod_thumb
+          shift: [0.45kx, 2.75ky]
+          rotate: -90
+      # Battery on/off switch
+      battery_switch:
+        what: slider
+        where:
+            ref: mirror_matrix_thumbfan_mod_thumb
+            shift: [0.4kx, 3.3ky]
+            rotate: -90
+        params:
+            side: B
+            from: pos
+            to: RAW
+      diode:
+        what: diode
+        where: /^mirror_.*/
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, 5]
+      holeTopRight:
+        what: mountinghole
+        where:
+          ref: [mirror_matrix_outer_num]
+          shift: [0.5kx, -0.5ky]
+      holeBottomRight:
+        what: mountinghole
+        where:
+          ref: [mirror_matrix_outer_bottom]
+          shift: [0.5kx, -0.5ky]
+      holeCenter:
+        what: mountinghole
+        where:
+          ref: [mirror_matrix_middle_home]
+          shift: [0.5kx, -0.5ky]
+      holeTopLeft:
+        what: mountinghole
+        where:
+          ref: [mirror_matrix_inner_num]
+          shift: [-0.5kx, -0.5ky]
+      holeBottomLeft:
+        what: mountinghole
+        where:
+          ref: [mirror_matrix_thumbfan_mod_thumb]
+          shift: [0, 0.8ky]
+      front_text: &text
+        what: text
+        where: &textWhere
+            ref: mirror_matrix_thumbfan_mod_thumb
+            shift: [0.3kx, 2.5ky]
+            rotate: 90
+        params: &textParams
+            text: r-bar-board
+            justify: left
+            h_size: 3.0
+            v_size: 3.0
+            thickness: 0.4
+cases:
+  bottomLeft:
+    - name: left
+      extrude: 1
+  xlBottomLeft:
+    - name: xlBoardLeft
+      extrude: 1
+  _outerWallLeft:
+    - name: xlBoardLeft
+      extrude: 10
+  _innerWallLeft:
+    - name: left
+      extrude: 10
+  wallLeft:
+    - what: case
+      name: _outerWallLeft
+      operation: add
+    - what: case
+      name: _innerWallLeft
+      operation: subtract
+  _holesLeft:
+    - name: mountingLeft
+      extrude: 8
+  _standoffsLeft:
+    - name: standoffLeft
+      extrude: 8
+  plateLeft:
+    - name: _plateLeftCutout
+      extrude: 1.2
+  caseLeft:
+    - what: case
+      name: _standoffsLeft
+      operation: add
+    - what: case
+      name: _holesLeft
+      operation: subtract
+    - what: case
+      name: xlBottomLeft
+      operation: add
+    - what: case
+      name: wallLeft
+      operation: add
+  
+  bottomRight:
+    - name: right
+      extrude: 1
+  xlBottomRight:
+    - name: xlBoardRight
+      extrude: 1
+  _outerWallRight:
+    - name: xlBoardRight
+      extrude: 10
+  _innerWallRight:
+    - name: right
+      extrude: 10
+  wallRight:
+    - what: case
+      name: _outerWallRight
+      operation: add
+    - what: case
+      name: _innerWallRight
+      operation: subtract
+  _holesRight:
+    - name: mountingRight
+      extrude: 8
+  _standoffsRight:
+    - name: standoffRight
+      extrude: 8
+  plateRight:
+    - name: _plateRightCutout
+      extrude: 1.2
+  caseRight:
+    - what: case
+      name: _standoffsRight
+      operation: add
+    - what: case
+      name: _holesRight
+      operation: subtract
+    - what: case
+      name: xlBottomRight
+      operation: add
+    - what: case
+      name: wallRight
+      operation: add

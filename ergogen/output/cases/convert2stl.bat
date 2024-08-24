@@ -1,0 +1,1 @@
+for %%i in (*.jscad) do (npx @jscad/cli@1 %%i -of stla)
