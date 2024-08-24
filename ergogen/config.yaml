@@ -428,7 +428,7 @@ pcbs:
             shift: [0.3kx, 0.75ky]
             rotate: 90
         params: &textParams
-            text: r-bar-board
+            text: r_bar_board
             justify: left
             h_size: 3.0
             v_size: 3.0
@@ -529,7 +529,7 @@ pcbs:
             shift: [0.3kx, 2.5ky]
             rotate: 90
         params: &textParams
-            text: r-bar-board
+            text: r_bar_board
             justify: left
             h_size: 3.0
             v_size: 3.0

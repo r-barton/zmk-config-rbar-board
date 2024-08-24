@@ -1,14 +1,14 @@
-if SHIELD_R-BAR-BOARD_LEFT
+if SHIELD_R_BAR_BOARD_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "r-bar-board"
+    default "r_bar_board"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 endif
 
-if SHIELD_R-BAR-BOARD_LEFT || SHIELD_R-BAR-BOARD_RIGHT
+if SHIELD_R_BAR_BOARD_LEFT || SHIELD_R_BAR_BOARD_RIGHT
 
 config ZMK_SPLIT
     default y

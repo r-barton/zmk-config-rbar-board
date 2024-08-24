@@ -17301,7 +17301,7 @@
 		(layer "Edge.Cuts")
 		(uuid "d8377fe9-a116-4de3-ae1c-53ae913d8827")
 	)
-	(gr_text "r-bar-board"
+	(gr_text "r_bar_board"
 		(at 229.4948 172.291066 -71)
 		(layer "F.SilkS")
 		(uuid "dee10e68-1d04-46e8-a856-7db6ffb3d511")

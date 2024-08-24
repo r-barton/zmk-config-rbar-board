@@ -1,4 +1,4 @@
-#include "r-bar-board.dtsi"
+#include "r_bar_board.dtsi"
 
 &default_transform { 
     col-offset = <6>;
