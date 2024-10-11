@@ -12,8 +12,8 @@ units:
   dpx: kx + 8
   dpy: ky + 8
   # M2 Screws Inserts
-  screwSize: 1
-  standoffSize: 2.5
+  screwSize: 1.5
+  standoffSize: 3.5
 
 points:
   zones:

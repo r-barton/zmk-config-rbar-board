@@ -1,15 +1,15 @@
 function _plateLeftCutout_extrude_1_2_outline_fn(){
     return new CSG.Path2D([[39,-207.5],[39,-115.7983441]]).appendArc([41.2191192,-112.9017556],{"radius":3,"clockwise":true,"large":false}).appendPoint([79.7305529,-102.5195962]).appendArc([80.6161322,-102.4180122],{"radius":3,"clockwise":true,"large":false}).appendPoint([101.8664157,-103.1600884]).appendArc([102.431166,-103.2339083],{"radius":3,"clockwise":true,"large":false}).appendPoint([161.3963481,-116.732338]).appendArc([161.8565274,-116.8006775],{"radius":3,"clockwise":false,"large":false}).appendPoint([180.5774979,-118.1097754]).appendArc([183.3609205,-121.3117371],{"radius":3,"clockwise":true,"large":false}).appendPoint([180.8068029,-157.8373224]).appendArc([180.6568417,-158.5866354],{"radius":3,"clockwise":true,"large":false}).appendPoint([165.2212457,-204.3617814]).appendArc([165.2150704,-204.3799035],{"radius":3,"clockwise":true,"large":false}).appendPoint([159.3579635,-221.3901766]).appendArc([155.5447033,-223.2500277],{"radius":3,"clockwise":true,"large":false}).appendPoint([120.0802661,-211.0386428]).appendArc([119.1229302,-210.875261],{"radius":3,"clockwise":false,"large":false}).appendPoint([61.0096804,-210.5000625]).appendArc([60.9903118,-210.5],{"radius":3,"clockwise":false,"large":false}).appendPoint([42,-210.5]).appendArc([39,-207.5],{"radius":3,"clockwise":true,"large":false}).close().innerToCAG()
 .subtract(
-    CAG.circle({"center":[155.8267473,-197.8584849],"radius":1})
+    CAG.circle({"center":[155.8267473,-197.8584849],"radius":1.5})
 .union(
-    CAG.circle({"center":[140.3471269,-134.3429899],"radius":1})
+    CAG.circle({"center":[140.3471269,-134.3429899],"radius":1.5})
 ).union(
-    CAG.circle({"center":[99.506888,-165.0628728],"radius":1})
+    CAG.circle({"center":[99.506888,-165.0628728],"radius":1.5})
 ).union(
-    CAG.circle({"center":[59,-189.8],"radius":1})
+    CAG.circle({"center":[59,-189.8],"radius":1.5})
 ).union(
-    CAG.circle({"center":[59,-132.5],"radius":1})
+    CAG.circle({"center":[59,-132.5],"radius":1.5})
 ).union(
     new CSG.Path2D([[83.5309597,-122.0817168],[97.4224921,-122.5668198]]).appendPoint([97.9075951,-108.6752874]).appendPoint([84.0160627,-108.1901844]).appendPoint([83.5309597,-122.0817168]).close().innerToCAG()
 ).union(
