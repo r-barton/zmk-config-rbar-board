@@ -26,15 +26,15 @@
 // -------------------------------------------------          -------------------------------------------------
 // | ESC   |  F1   |  F2   |  F3   |  F4   |  F5   |          |  F6   |  F7   |  F8   |  F9   | F10   | F11   |
 // | TAB   |       |       |       |       | VOL+  |          | HOME  |       |  UP   |       | END   | F12   |
-// | SHFT  |       |       |       |       | VOL-  |          |       | LEFT  | DOWN  | RIGHT |       |       |
+// | SHFT  |C_PREV |       |C_NEXT |       | VOL-  |          |       | LEFT  | DOWN  | RIGHT |       | PSCRN |
 // | CTRL  |       |       |       |       | >||   |          |       |       |       |       |       |       |
 // | ALT   |       |       |       |       |       |          |       |       |       |       |       |       |
                         bindings = <
-   &kp ESC    &kp F1    &kp F2    &kp F3     &kp F4   &kp F5                 &kp F6    &kp F7    &kp F8    &kp F9     &kp F10  &kp F11
-   &kp TAB    &trans    &trans    &trans     &trans   &kp C_VOL_UP           &kp HOME  &trans    &kp UP    &trans     &kp END  &kp F12
-   &kp LSHFT  &trans    &trans    &trans     &trans   &kp C_VOL_DN           &trans    &kp LEFT  &kp DOWN  &kp RIGHT  &trans   &kp PSCRN
-   &kp LCTRL  &trans    &trans    &trans     &trans   &kp C_PP               &trans    &trans    &trans    &trans     &trans   &trans
-   &kp LALT   &trans    &trans    &trans     &trans   &trans                 &trans    &trans    &trans    &trans     &trans   &trans
+   &kp ESC    &kp F1     &kp F2    &kp F3     &kp F4   &kp F5                 &kp F6    &kp F7    &kp F8    &kp F9     &kp F10  &kp F11
+   &kp TAB    &trans     &trans    &trans     &trans   &kp C_VOL_UP           &kp HOME  &trans    &kp UP    &trans     &kp END  &kp F12
+   &kp LSHFT  &kp C_PREV &trans    &kp C_NEXT &trans   &kp C_VOL_DN           &trans    &kp LEFT  &kp DOWN  &kp RIGHT  &trans   &kp PSCRN
+   &kp LCTRL  &trans     &trans    &trans     &trans   &kp C_PP               &trans    &trans    &trans    &trans     &trans   &trans
+   &kp LALT   &trans     &trans    &trans     &trans   &trans                 &trans    &trans    &trans    &trans     &trans   &trans
                         >;
                 };
                 layer_2 {
